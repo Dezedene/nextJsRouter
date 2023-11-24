@@ -6,8 +6,7 @@ const UseEffectTest = () => {
 
 let [resourceType, setResourceType] = useState( () => 'Posts' )
 let [ items, setItems ] = useState([])
-
-console.log('Component Render')
+let [ windowWidth, setWindowWidth ] = useState( window.innerWidth )
 
 useEffect(() => {
   fetch(`https://jsonplaceholder.typicode.com/${resourceType}`)
@@ -15,18 +14,37 @@ useEffect(() => {
     .then(json => setItems(json))
 }, [resourceType])
 
+const handleResize = () => {
+ setWindowWidth(window.innerWidth)
+}
+
+useEffect( () => {
+  window.addEventListener('resize', handleResize)
+
+  return () => {
+    console.log('unmount')
+  }
+} )
+
 
   return (
     <>
       <div>
-        <button className='border-2 border-slate-950 p-2 mr-2' onClick={ () => setResourceType('Posts') }>posts</button>
-        <button className='border-2 border-slate-950 p-2 mr-2' onClick={ () => setResourceType('Users') }>users</button>
-        <button className='border-2 border-slate-950 p-2' onClick={ () => setResourceType('Comments') }>comments</button>
+        <div className='font-bold'>
+          Window Size = { windowWidth }
+        </div>
+        <div>
+          <button className='border-2 border-slate-950 p-2 mr-2' onClick={ () => setResourceType('Posts') }>posts</button>
+          <button className='border-2 border-slate-950 p-2 mr-2' onClick={ () => setResourceType('Users') }>users</button>
+          <button className='border-2 border-slate-950 p-2' onClick={ () => setResourceType('Comments') }>comments</button>
+        </div>
+
+        <h1 className='font-bold'>{ resourceType }</h1>
+
+        { items.map((item, i) => {
+          return <pre key={i}>{JSON.stringify(item)}</pre>
+        }) }
       </div>
-      <h1 className='font-bold'>{ resourceType }</h1>
-      { items.map((item, i) => {
-        return <pre key={i}>{JSON.stringify(item)}</pre>
-      }) }
     </>
   )
 }
