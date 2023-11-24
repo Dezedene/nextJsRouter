@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import ProductCard from './components/ProductCard/ProductCard';
+import HookTest from './components/HookTest';
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
       <h1>Hello World</h1>
       <Link href="/users">Users</Link>
       <ProductCard />
+      <HookTest />
     </main>
   )
 }
