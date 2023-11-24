@@ -1,14 +1,17 @@
-import Link from 'next/link';
-import ProductCard from './components/ProductCard/ProductCard';
-import UseStateTest from './components/Hooks/UseStateTest';
+import Link from 'next/link'
+import ProductCard from './components/ProductCard/ProductCard'
+import UseStateTest from './components/Hooks/UseStateTest'
+import UseEffect from './components/Hooks/UseEffectTest'
 
 export default function Home() {
   return (
     <main>
-      <h1>Hello World</h1>
       <Link href="/users">Users</Link>
-      <ProductCard />
-      <UseStateTest />
+      <>
+        <ProductCard />
+        <UseStateTest />
+        <UseEffect />
+      </>
     </main>
   )
 }
