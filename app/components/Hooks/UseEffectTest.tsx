@@ -6,7 +6,7 @@ const UseEffectTest = () => {
 
 let [resourceType, setResourceType] = useState( () => 'Posts' )
 let [ items, setItems ] = useState([])
-let [ windowWidth, setWindowWidth ] = useState( window.innerWidth )
+let [ windowWidth, setWindowWidth ] = useState(window.innerWidth)
 
 useEffect(() => {
   fetch(`https://jsonplaceholder.typicode.com/${resourceType}`)
