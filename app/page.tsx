@@ -1,7 +1,7 @@
 import Link from 'next/link'
 // import ProductCard from './components/ProductCard/ProductCard'
 // import UseStateTest from './components/Hooks/UseStateTest'
-// import UseEffect from './components/Hooks/UseEffectTest'
+import UseEffect from './components/Hooks/UseEffectTest'
 import UseMemoTest from './components/Hooks/UseMemoTest'
 
 export default function Home() {
@@ -11,8 +11,8 @@ export default function Home() {
       <>
         <div className='mt-40'>
           {/* <ProductCard />
-          <UseStateTest />
-          <UseEffect /> */}
+          <UseStateTest />  */}
+          <UseEffect /> 
           <UseMemoTest />
         </div>
       </>

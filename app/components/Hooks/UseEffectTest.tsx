@@ -8,6 +8,13 @@ let [resourceType, setResourceType] = useState( () => 'Posts' )
 let [ items, setItems ] = useState([])
 let [ windowWidth, setWindowWidth ] = useState(window.innerWidth)
 
+// UseEffect first parameter:
+// If no second parameter:
+// hook will be executed each time the component is refreshed.
+// useEffect second parameter:
+// Each time the second parameter value is edited, the hook is going to run
+// if second parameter exist and no edition made = hook will not run
+
 useEffect(() => {
   fetch(`https://jsonplaceholder.typicode.com/${resourceType}`)
     .then(response => response.json())
